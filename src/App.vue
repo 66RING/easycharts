@@ -1,29 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <!-- <MyChart :options="options"/> -->
-  <Demo/>
+  <VEcharts></VEcharts>
+  <!-- <Demo/> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import MyChart from './components/MyChart.vue'
+import VEcharts from './components/VEcharts.vue'
 import Demo from './components/Demo.vue'
-import options from './options.js'
+// import { defineComponent } from "vue";
 
-export default {
+export default{
   name: 'App',
-  // 组测使用的组件
+  // 注册使用的组件
   components: {
-    HelloWorld,
-    MyChart,
+    VEcharts,
 	Demo,
   },
   data() {
 	return {
-	  options: options
 	}
+  },
+  methods: {
   }
-}
+};
 </script>
 
 <style>
