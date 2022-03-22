@@ -1,19 +1,14 @@
 <template>
-  <VEcharts></VEcharts>
-  <!-- <Demo/> -->
+  <!-- 根据路由展示页面 -->
+  <router-view />
 </template>
 
 <script>
-import VEcharts from './components/VEcharts.vue'
-import Demo from './components/Demo.vue'
-// import { defineComponent } from "vue";
 
 export default{
   name: 'App',
-  // 注册使用的组件
+  // 要用的组件需要先注册
   components: {
-    VEcharts,
-	Demo,
   },
   data() {
 	return {
