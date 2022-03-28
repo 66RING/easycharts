@@ -1,0 +1,92 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "charts",
+      "version": "0.1.0",
+      "private": true,
+      "scripts": {
+        "dev": "vite",
+        "serve": "vite preview",
+        "build": "vite build"
+      },
+      "dependencies": {
+        "@ant-design/colors": "^6.0.0",
+        "@ant-design/icons-vue": "^6.1.0",
+        "ant-design-vue": "^2.2.8",
+        "core-js": "^3.8.3",
+        "echarts": "^5.3.0",
+        "splitpanes": "^3.1.1",
+        "vue": "^3.2.13",
+        "vue-echarts": "^6.0.2",
+        "vue-router": "^4.0.13"
+      },
+      "devDependencies": {
+        "@vitejs/plugin-vue": "^1.2.1",
+        "@vue/complier-sfc": "^3.0.5",
+        "vite": "^2.1.5"
+      }
+    },
+    "prefix": "E:\\easycharts"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "E:\\.pnpm-store\\v3",
+    "virtualStoreDir": "E:\\easycharts\\node_modules\\.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "E:\\easycharts",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmmirror.com/@ant-design/colors/6.0.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@ant-design/colors",
+      "rawSpec": "^6.0.0"
+    }
+  },
+  "5 debug pnpm:progress": {
+    "packageId": "registry.npmmirror.com/@ant-design/colors/6.0.0",
+    "requester": "E:\\easycharts",
+    "status": "resolved"
+  },
+  "6 debug pnpm:progress": {
+    "packageId": "registry.npmmirror.com/@ant-design/colors/6.0.0",
+    "requester": "E:\\easycharts",
+    "status": "found_in_store"
+  },
+  "7 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "@vue/complier-sfc is not in the npm registry, or you have no permission to fetch it.\n\nNo authorization header was set for the request.",
+    "request": {
+      "url": "https://registry.npm.taobao.org/@vue%2Fcomplier-sfc"
+    },
+    "response": {
+      "size": 0
+    },
+    "pkgName": "@vue/complier-sfc",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET https://registry.npm.taobao.org/@vue%2Fcomplier-sfc: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET https://registry.npm.taobao.org/@vue%2Fcomplier-sfc: Not Found - 404\n    at RetryOperation._fn (D:\\Z-code-apps\\Node.js\\node-global\\node_modules\\pnpm\\dist\\pnpm.cjs:84884:18)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
+    }
+  },
+  "8 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmmirror.com/@ant-design/icons-vue/6.1.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@ant-design/icons-vue",
+      "rawSpec": "^6.1.0"
+    }
+  },
+  "9 debug pnpm:progress": {
+    "packageId": "registry.npmmirror.com/@ant-design/icons-vue/6.1.0",
+    "requester": "E:\\easycharts",
+    "status": "resolved"
+  }
+}
