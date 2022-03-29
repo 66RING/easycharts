@@ -5,6 +5,7 @@ import Index from '../components/admin/Index.vue'
 
 import Demo from '../components/Demo.vue'
 import MakeCharts from '../components/MakeCharts.vue'
+import CodeEditor from '../components/CodeEditor.vue'
 
 // 配置路由信息
 export default [
@@ -16,6 +17,7 @@ export default [
       { path: 'index', component: Index},
       { path: 'demo', component: Demo},
       { path: 'MakeCharts', component: MakeCharts},
+      { path: 'CodeEditor', component: CodeEditor},
     ]
   }
 ]

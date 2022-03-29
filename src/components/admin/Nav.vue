@@ -6,6 +6,8 @@
 
     <a-menu theme="dark" mode="inline" @click="goToPage">
 
+      <a-menu-item key="CodeEditor">
+        <ToolOutlined /><span>代码编辑</span></a-menu-item>
       <a-menu-item key="Demo">
         <ToolOutlined /><span>查看示例</span></a-menu-item>
       <a-menu-item key="MakeCharts">
