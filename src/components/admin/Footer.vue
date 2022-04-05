@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <span>EasyCharts</span>
+    <el-footer>Footer TODO </el-footer>
   </div>
 </template>
 
@@ -13,11 +13,11 @@ export default {
 <style scoped>
 
 .footer{
-  background: #eee;
+  background-color: #B3C0D1;
   text-align: center;
 }
-.footer span {
-  font-size: 18px;
+.el-footer{
+  font-size: 30px;
 }
 
 </style>

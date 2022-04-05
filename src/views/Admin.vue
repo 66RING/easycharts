@@ -1,23 +1,16 @@
 <!-- 管理主界面 -->
 <template>
-  <a-layout class='container'>
-	<!-- 菜单栏 -->
+  <el-container>
     <Nav></Nav>
-    <a-layout>
-	  <!-- 顶栏 -->
-      <a-layout-header class="header-btn">
-        <Header></Header>
-      </a-layout-header>
-	  <!-- 具体内容 -->
-      <a-layout-content>
-        <router-view :key="$router.path"></router-view>
-      </a-layout-content>
-	  <!-- 地栏 -->
-      <a-layout-footer>
-        <Footer></Footer>
-      </a-layout-footer>
-    </a-layout>
-  </a-layout>
+    <el-container>
+      <Header/>
+      <el-main>
+		<router-view :key="$router.path"></router-view>
+	  </el-main>
+      <!-- <el-footer>Footer</el-footer> -->
+	  <Footer/>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
@@ -32,14 +25,21 @@ export default {
 
 <style scoped>
 
-.container {
-  height: 100%;
+.el-main {
+  background-color: #E9EEF3;
+  color: #333;
 }
 
-.header-btn {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+body > .el-container {
+  margin-bottom: 40px;
 }
 
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
 </style>
