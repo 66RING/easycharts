@@ -3,12 +3,20 @@
   <el-container>
     <Nav></Nav>
     <el-container>
+	  <!-- 顶栏 -->
       <Header/>
+
+	  <!-- 主页面 -->
       <el-main>
 		<router-view :key="$router.path"></router-view>
 	  </el-main>
-      <!-- <el-footer>Footer</el-footer> -->
-	  <Footer/>
+
+	  <!-- 底栏 -->
+      <el-footer
+	  background-color="#B3C0D1"
+	  text-align="center"
+	  font-size="30px">
+	  软件工程大作业共同体</el-footer>
     </el-container>
   </el-container>
 </template>
@@ -16,10 +24,9 @@
 <script>
 // 顶栏，导航栏目，底栏样式都封装在下列文件中
 import Nav from '../components/admin/Nav.vue'
-import Footer from '../components/admin/Footer.vue'
 import Header from '../components/admin/Header.vue'
 export default {
-  components: {Nav, Footer, Header}
+  components: {Nav, Header}
 }
 </script>
 
