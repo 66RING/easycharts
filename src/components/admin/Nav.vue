@@ -32,6 +32,15 @@
 	  </template>
 	  </el-menu-item>
 
+	  <!-- 成员列表 -->
+	  <el-menu-item index="/Members">
+	  <template #title>
+		<el-icon><document/></el-icon>
+		<span>成员列表</span>
+	  </template>
+	  </el-menu-item>
+
+
 	</el-menu>
   </el-aside>
 </template>
