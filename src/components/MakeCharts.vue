@@ -16,8 +16,8 @@
 		<h1>预览页面</h1>
 		<div style="width: 600px; height: 400px;" >
 		  <v-chart ref="chart" class="chart" :option="options" />
-		  <button @click="changeOpt">changeOpt</button>
 		</div>
+		<el-button type="primary" @click="changeOpt">change</el-button>
 	  </pane>
 	</splitpanes>
 
@@ -63,17 +63,20 @@ export default defineComponent({
   },
   methods: {
 	changeOpt() {
-	  this.$refs.chart.clear()
-	  this.options = list[(this.idx%3)]
-	  this.idx++;
+	  this.options = this.newOpt
+	  // this.$refs.chart.clear()
+	  // this.options = list[(this.idx%3)]
+	  // this.idx++;
 	},
 	CodeChange(changeObj) {
-	  console.log("origin optons", this.options)
+	  
+	  console.log("origin optons", JSON.stringify(this.options))
 	  console.log("CodeChange str:", changeObj)
 	  // string to json
 	  let obj = JSON.parse(changeObj)
 	  if (obj) {
 	    console.log("CodeChange obj:", obj)
+		this.newOpt = ref(obj)
 	    // this.options = ref(obj)
 	  }
 
@@ -89,7 +92,8 @@ export default defineComponent({
 		theme: "rubyblue", // 主题
 		lint: true
 	  },
-      code: '{\n\t"color": "red",\n\t"size": 2.5,\n\t"msg": "hello"\n}'
+	  newOpt: "{}",
+      code: '{\n\t"color":["blue"],\n\t"title":{"text":"ECharts 入门示例"},\n\t"tooltip":{},\n\t"legend":{"data":["销量"]},\n\t"xAxis":{"data":["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]},\n\t"yAxis":{},\n\t"series":[{"name":"销量","type":"bar",\n\t"data":[5,20,36,10,10,20]}],\n\t"animationDuration":200\n}'
 	}
   }
 });
