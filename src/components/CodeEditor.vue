@@ -1,55 +1,67 @@
 <template>
-	<div>
-		<codemirror
-		  ref="myEditor"
-		  :value="code"
-		  :options="editorOption"
-		  @input="CodeChange">
-		</codemirror>
-	</div>
+  <Codemirror
+    v-model:value="value"
+    :options="cmOptions"
+    border
+    :height="500"
+    @change="change"
+  />
 </template>
-<script>
-import { codemirror } from 'vue-codemirror-lite'
-// import base style
-import 'codemirror/lib/codemirror.css'
 
+<script>
+import Codemirror from "codemirror-editor-vue3";
+
+// language
+import "codemirror/mode/javascript/javascript.js";
+
+// theme
+import "codemirror/theme/dracula.css";
+
+import { ref } from "vue";
 export default {
-  components: {
-    codemirror
+  components: { Codemirror },
+  props: {
+	// 接收value属性
+    value: {
+      type: String,
+      default: '',
+    },
+    change: {
+      type: Function,
+    },
   },
-  data () {
+  watch: {
+	// 监听value属性变化
+    value(val) {
+      const editorValue = this.code
+      if (val !== editorValue) {
+        this.code = ref(val)
+      }
+    },
+  },
+  setup() {
     return {
-	  editorOption: {
-		lineNumbers:true,
-		mode: {name: "javascript", json: true},
-	  },
-      code: '{\n\t"color": "red",\n\t"size": 2.5,\n\t"msg": "hello"\n}'
-    }
-  },
-  computed: {
-    editor() {
-      // get current editor object
-      return this.$refs.myEditor.editor
-    }
+      cmOptions: {
+        mode: "application/json", // Language mode
+        theme: "dracula", // Theme
+        lineNumbers: true, // Show line number
+		lint: true,
+        smartIndent: true, // Smart indent
+        indentUnit: 2, // The smart indent unit is 2 spaces in length
+        foldGutter: true, // Code folding
+        styleActiveLine: true, // Display the style of the selected row
+      },
+    };
   },
   mounted() {
-    // use editor object...
-    // this.editor.focus()
-    console.log('this is current editor object', this.editor)
-  },
-  methods: {
-	CodeChange(changeObj) {
-	  console.log("CodeChange str:", changeObj)
-	  // string to json
-	  //let obj = JSON.parse(changeObj)
-	  //if (obj) {
-	  //  console.log("CodeChange obj:", obj)
-	  //}
-
-	}
+	this.code = ref(this.value)
   }
-}
+};
 </script>
-<style>
 
+<style scoped>
+.Codemirror {
+  height: 100%;
+  width: 100%;
+}
 </style>
