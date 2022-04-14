@@ -9,14 +9,22 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
+    "codemirror": "^5.65.2",
+    "codemirror-editor-vue3": "^2.0.6",
     "core-js": "^3.8.3",
     "echarts": "^5.3.0",
     "element-plus": "^2.1.8",
+    "jsonlint": "^1.6.3",
+    "jsonlint-mod": "^1.7.6",
+    "script-loader": "^0.7.2",
     "splitpanes": "^3.1.1",
     "vue": "^3.2.13",
+    "vue-codemirror": "^4.0.6",
     "vue-codemirror-lite": "^1.0.4",
     "vue-echarts": "^6.0.2",
-    "vue-router": "^4.0.13"
+    "vue-monaco-editor": "^0.0.19",
+    "vue-router": "^4.0.13",
+    "webpack": "^5.72.0"
   },
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "^1.0.3",

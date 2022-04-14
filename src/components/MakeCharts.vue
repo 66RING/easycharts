@@ -3,13 +3,11 @@
 	<splitpanes class="default-theme">
 	  <pane>
 		<h1>操作页面</h1>
-		<!-- <CodeEditor/> -->
-		<codemirror
+		<CodeEditor
+		  ref="jsonEditor"
+		  @change="handleChange"
 		  :value="code"
-		  :options="editorOption"
-		  ref="myEditor"
-		  @change="CodeChange">
-		</codemirror>
+		/>
 
 	  </pane>
 	  <pane>
@@ -17,7 +15,7 @@
 		<div style="width: 600px; height: 400px;" >
 		  <v-chart ref="chart" class="chart" :option="options" />
 		</div>
-		<el-button type="primary" @click="changeOpt">change</el-button>
+		<el-button type="primary" @click="handleSubmit">Submit</el-button>
 	  </pane>
 	</splitpanes>
 
@@ -27,7 +25,6 @@
 <script>
 import VChart, { THEME_KEY } from "vue-echarts";
 import CodeEditor from "./CodeEditor.vue"
-import { codemirror } from 'vue-codemirror-lite'
 
 
 import { ref, defineComponent, } from "vue";
@@ -42,7 +39,6 @@ export default defineComponent({
     VChart,
 	Splitpanes,
 	Pane,
-    codemirror,
 	CodeEditor
   },
   provide: {
@@ -53,7 +49,6 @@ export default defineComponent({
     return { options };
   },
   mounted() {
-	// this.code = JSON.stringify(options1)
   },
   computed: {
     editor() {
@@ -62,22 +57,20 @@ export default defineComponent({
     }
   },
   methods: {
-	changeOpt() {
+	handleSubmit() {
 	  this.options = this.newOpt
-	  // this.$refs.chart.clear()
-	  // this.options = list[(this.idx%3)]
-	  // this.idx++;
 	},
-	CodeChange(changeObj) {
-	  
-	  console.log("origin optons", JSON.stringify(this.options))
-	  console.log("CodeChange str:", changeObj)
+	handleChange(val) {
+	  console.log("handleChange str:", val)
 	  // string to json
-	  let obj = JSON.parse(changeObj)
-	  if (obj) {
-	    console.log("CodeChange obj:", obj)
-		this.newOpt = ref(obj)
-	    // this.options = ref(obj)
+	  try {
+		let obj = JSON.parse(val)
+		if (obj) {
+		  this.newOpt = ref(obj)
+		}
+	  } catch (e) {
+		this.$message.warning('请输入正确的 json')
+		return
 	  }
 
 	}
@@ -85,13 +78,7 @@ export default defineComponent({
   data() {
 	return {
 	  idx:0,
-	  editorOption: {
-		lineNumbers: true, // 是否显示行数
-		mode: "application/json",  // 接受的类型，json xml....
-		gutters: ["CodeMirror-lint-markers"], // 样式的宽度
-		theme: "rubyblue", // 主题
-		lint: true
-	  },
+	  // 保存最新参数
 	  newOpt: "{}",
       code: '{\n\t"color":["blue"],\n\t"title":{"text":"ECharts 入门示例"},\n\t"tooltip":{},\n\t"legend":{"data":["销量"]},\n\t"xAxis":{"data":["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]},\n\t"yAxis":{},\n\t"series":[{"name":"销量","type":"bar",\n\t"data":[5,20,36,10,10,20]}],\n\t"animationDuration":200\n}'
 	}
@@ -100,8 +87,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.chart {
-  height: 100%;
-  width: 100%;
-}
 </style>
